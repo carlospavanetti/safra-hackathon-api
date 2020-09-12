@@ -37,8 +37,8 @@ namespace APISafra.API.Agents
             this.tableauLinks = new Dictionary<string, string>
             {
                 {"00711234511", "https://public.tableau.com/views/GraficosSafra/Painel1?:showVizHome=no&:embed=true"},
-                {"00711234522", "https://public.tableau.com/views/GraficosSafra/Painel1?:showVizHome=no&:embed=true"},
-                {"00711234533", "https://public.tableau.com/views/GraficosSafra/Painel1?:showVizHome=no&:embed=true"}
+                {"00711234522", "https://public.tableau.com/views/GraficosSafra/Painel2?:showVizHome=no&:embed=true"},
+                {"00711234533", "https://public.tableau.com/views/GraficosSafra/Painel3?:showVizHome=no&:embed=true"}
             };
 
             this.debtSettlementApprovement = new Dictionary<string, bool>
