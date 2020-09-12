@@ -24,6 +24,8 @@ namespace APISafra.API
             services.AddSingleton<IHttpClientFactory, HttpClientFactory>();
             services.AddSingleton<ISafraAccountAgent, SafraAccountAgent>();
             services.AddSingleton<ISafraAccountService, SafraAccountService>();
+            services.AddSingleton<ISafraMorningCallsAgent, SafraMorningCallsAgent>();
+            services.AddSingleton<ISafraMorningCallsService, SafraMorningCallsService>();
             services.AddControllers();
         }
 
