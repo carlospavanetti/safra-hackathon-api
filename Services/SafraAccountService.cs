@@ -36,5 +36,10 @@ namespace APISafra.API.Services
         {
             return this.accountAgent.getAccountDebtSettlementApprovement(account);
         }
+
+        public string postAccountDebtFreezing(string account)
+        {
+            return this.accountAgent.postAccountDebtFreezing(account);
+        }
     }
 }

@@ -159,5 +159,15 @@ namespace APISafra.API.Agents
             };
             return JsonConvert.SerializeObject(jsonData);
         }
+
+        public string postAccountDebtFreezing(string account)
+        {
+            var jsonData = new
+            {
+                AccountId = account,
+                Approved = true
+            };
+            return JsonConvert.SerializeObject(jsonData);
+        }
     }
 }

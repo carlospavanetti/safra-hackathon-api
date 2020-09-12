@@ -11,5 +11,7 @@ namespace APISafra.API.Agents
         string getAccountGraphics(string account);
 
         string getAccountDebtSettlementApprovement(string account);
+        
+        string postAccountDebtFreezing(string account);
     }
 }

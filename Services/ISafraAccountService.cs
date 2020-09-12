@@ -7,5 +7,6 @@ namespace APISafra.API.Services
         string getAccountTransactions(string account);
         string getAccountGraphics(string account);
         string getAccountDebtSettlementApprovement(string account);
+        string postAccountDebtFreezing(string account);
     }
 }

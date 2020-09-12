@@ -49,5 +49,11 @@ namespace APISafra.API.Controllers
         {
             return Ok(accountService.getAccountDebtSettlementApprovement(id));
         }
+
+        // GET api/account/5/debtfreezing
+        [HttpGet("{id}/debtfreezing")]
+        public IActionResult PostAccountDebtFreezing(string id){
+            return Ok(accountService.postAccountDebtFreezing(id));
+        }
     }
 }
