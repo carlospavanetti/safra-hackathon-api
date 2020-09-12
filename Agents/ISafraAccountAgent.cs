@@ -9,5 +9,7 @@ namespace APISafra.API.Agents
         string getAccountTransactions(string account);
 
         string getAccountGraphics(string account);
+
+        string getAccountDebtSettlementApprovement(string account);
     }
 }

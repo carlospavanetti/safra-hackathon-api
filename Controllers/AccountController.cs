@@ -38,8 +38,16 @@ namespace APISafra.API.Controllers
 
         // GET api/account/5/graphics
         [HttpGet("{id}/graphics")]
-        public IActionResult GetAccountGraphics(string id){
+        public IActionResult GetAccountGraphics(string id)
+        {
             return Ok(accountService.getAccountGraphics(id));
+        }
+
+        // GET api/account/5/debtsettlement
+        [HttpGet("{id}/debtapprove")]
+        public IActionResult GetAccountDebtSettlementApprovement(string id)
+        {
+            return Ok(accountService.getAccountDebtSettlementApprovement(id));
         }
     }
 }

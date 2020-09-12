@@ -31,5 +31,10 @@ namespace APISafra.API.Services
         {
             return this.accountAgent.getAccountGraphics(account);
         }
+
+        public string getAccountDebtSettlementApprovement(string account)
+        {
+            return this.accountAgent.getAccountDebtSettlementApprovement(account);
+        }
     }
 }

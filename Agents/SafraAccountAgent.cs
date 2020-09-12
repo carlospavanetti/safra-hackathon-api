@@ -24,7 +24,9 @@ namespace APISafra.API.Agents
 
         private string accessToken { get; set; }
 
-        private Dictionary<string,string> tableauLinks;
+        private Dictionary<string, string> tableauLinks;
+
+        private Dictionary<string, bool> debtSettlementApprovement;
 
         public SafraAccountAgent(Factories.IHttpClientFactory httpClientFactory)
         {
@@ -37,6 +39,13 @@ namespace APISafra.API.Agents
                 {"00711234511", "https://public.tableau.com/views/GraficosSafra/Painel1?:showVizHome=no&:embed=true"},
                 {"00711234522", "https://public.tableau.com/views/GraficosSafra/Painel1?:showVizHome=no&:embed=true"},
                 {"00711234533", "https://public.tableau.com/views/GraficosSafra/Painel1?:showVizHome=no&:embed=true"}
+            };
+
+            this.debtSettlementApprovement = new Dictionary<string, bool>
+            {
+                {"00711234511", true},
+                {"00711234522", false},
+                {"00711234533", true}
             };
         }
 
@@ -136,6 +145,17 @@ namespace APISafra.API.Agents
             {
                 AccountId = account,
                 Url = url
+            };
+            return JsonConvert.SerializeObject(jsonData);
+        }
+
+        public string getAccountDebtSettlementApprovement(string account)
+        {
+            var approved = debtSettlementApprovement.GetValueOrDefault(account);
+            var jsonData = new
+            {
+                AccountId = account,
+                Approved = approved
             };
             return JsonConvert.SerializeObject(jsonData);
         }
