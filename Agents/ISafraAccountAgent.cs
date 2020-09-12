@@ -7,5 +7,7 @@ namespace APISafra.API.Agents
         string getAccountBalance(string account);
 
         string getAccountTransactions(string account);
+
+        string getAccountGraphics(string account);
     }
 }

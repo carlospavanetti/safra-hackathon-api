@@ -26,5 +26,10 @@ namespace APISafra.API.Services
         {
             return this.accountAgent.getAccountTransactions(account);
         }
+
+        public string getAccountGraphics(string account)
+        {
+            return this.accountAgent.getAccountGraphics(account);
+        }
     }
 }

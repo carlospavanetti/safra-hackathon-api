@@ -24,11 +24,20 @@ namespace APISafra.API.Agents
 
         private string accessToken { get; set; }
 
+        private Dictionary<string,string> tableauLinks;
+
         public SafraAccountAgent(Factories.IHttpClientFactory httpClientFactory)
         {
             this.httpClientFactory = httpClientFactory;
 
             renewAccessToken().GetAwaiter();
+
+            this.tableauLinks = new Dictionary<string, string>
+            {
+                {"00711234511", "https://public.tableau.com/views/GraficosSafra/Painel1?:showVizHome=no&:embed=true"},
+                {"00711234522", "https://public.tableau.com/views/GraficosSafra/Painel1?:showVizHome=no&:embed=true"},
+                {"00711234533", "https://public.tableau.com/views/GraficosSafra/Painel1?:showVizHome=no&:embed=true"}
+            };
         }
 
         private async Task renewAccessToken()
@@ -118,6 +127,17 @@ namespace APISafra.API.Agents
         public string getAccountTransactions(string account)
         {
             return requestSafraApi(account + "/transactions").GetAwaiter().GetResult();
+        }
+
+        public string getAccountGraphics(string account)
+        {
+            var url = tableauLinks.GetValueOrDefault(account);
+            var jsonData = new
+            {
+                AccountId = account,
+                Url = url
+            };
+            return JsonConvert.SerializeObject(jsonData);
         }
     }
 }

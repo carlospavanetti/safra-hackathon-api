@@ -35,5 +35,11 @@ namespace APISafra.API.Controllers
         {
             return Ok(accountService.getAccountTransactions(id));
         }
+
+        // GET api/account/5/graphics
+        [HttpGet("{id}/graphics")]
+        public IActionResult GetAccountGraphics(string id){
+            return Ok(accountService.getAccountGraphics(id));
+        }
     }
 }
