@@ -1,19 +1,36 @@
-# Sofia Back-end API
+# Sofia - Chatbot para o desafio Hackathon Safra 2020
 
-This API uses `GET` and `POST` requests to communicate and HTTP [response codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) to indenticate status and errors. All responses come in standard JSON. All requests must include a `content-type` of `api/` and the body must be valid JSON.
+Este é o protótipo apresentado no Hackathon Safra 2020 pelo time 3, composto pelos seguintes integrantes:
 
-## Account Data
+- Camila Vieira
+- Carlos Pavanetti
+- Caroline Alcântara
+- Débora Bonfá
+- Hector Lima
 
-**You send:** Your account ID.
-**You get:** A JSON with the basic data of the account.
+## Estrutura do projeto
 
-**Request:**
+O projeto utiliza o framework Next.js, feito em cima da biblioteca React.js,
+e se integra com o backend, feito em ASP.NET Core, pela fetch API.
+
+## Estrutura do back-end do projeto
+
+O back-end do projeto está estruturado de acordo com o padrão MVC (Model-View-Controller). O diretório `Controllers` contém a mediação entre entrada e saída da API, o diretório `Services` é responsável por se comunicar com a camada de dados, enquanto no diretório `Agents` se encontram as classes responsáveis pela comunicação com as `APIs` disponibilizadas para o desafio Hackathon Safra.
+
+Essa API utiliza as requisições `GET` e `POST` para se comunicarem e HTTP [response codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) para indicar status e erros. Todas as respostas são dadas em JSON.
+
+## Dados da conta
+
+**Você envia:** ID da conta.
+**Você obtém:** Um JSON com os dados básicos da conta.
+
+**Requisição:**
 
 ```json
 GET / api / account / 00711234533
 ```
 
-**Successful Response:**
+**Resposta válida:**
 
 ```json
 {
@@ -38,18 +55,18 @@ GET / api / account / 00711234533
 }
 ```
 
-## Account Balance
+## Saldo da conta
 
-**You send:** Your account ID.
-**You get:** A JSON with the balance of the account.
+**Você envia:** ID da conta.
+**Você obtém:** Um JSON com o saldo da conta.
 
-**Request:**
+**Requisição:**
 
 ```json
 GET / api / account / 00711234533 / balances
 ```
 
-**Successful Response:**
+**Resposta válida:**
 
 ```json
 {
@@ -91,18 +108,18 @@ GET / api / account / 00711234533 / balances
 }
 ```
 
-## Account Transactions
+## Transações da conta
 
-**You send:** Your account ID.
-**You get:** A JSON with the last transactions of the account.
+**Você envia:** ID da conta.
+**Você obtém:** Um JSON com as últimas transações da conta.
 
-**Request:**
+**Requisição:**
 
 ```json
 GET / api / account / 00711234533 / transactions
 ```
 
-**Successful Response:**
+**Resposta válida:**
 
 ```json
 {
@@ -174,18 +191,18 @@ GET / api / account / 00711234533 / transactions
 }
 ```
 
-## Account Graphics
+## Gráficos da conta
 
-**You send:** Your account ID.
-**You get:** A JSON with the Tableau graphics of the last transactions of the account.
+**Você envia:** ID da conta.
+**Você obtém:** Um JSON com o gráficos referentes as últimas transações da conta.
 
-**Request:**
+**Requisição:**
 
 ```json
 GET / api / account / 00711234533 / graphics
 ```
 
-**Successful Response:**
+**Resposta válida:**
 
 ```json
 {
@@ -194,18 +211,18 @@ GET / api / account / 00711234533 / graphics
 }
 ```
 
-## Debt Settlement Approvement
+## Aprovação de renegociação de dívida
 
-**You send:** Your account ID.
-**You get:** A JSON with the response (YES/NO) if the account ID has the authorization to renegociate the debt.
+**Você envia:** ID da conta.
+**Você obtém:** Um JSON com a resposta (SIM/NÃO) se a conta especificada possui autorização para renegociar a dívida.
 
-**Request:**
+**Requisição:**
 
 ```json
 GET api/account/00711234533/debtapprove
 ```
 
-**Successful Response:**
+**Resposta válida:**
 
 ```json
 {
@@ -214,18 +231,18 @@ GET api/account/00711234533/debtapprove
 }
 ```
 
-## Debt Settlement Freezing
+## Congelamento de renegociação da dívida
 
-**You send:** Your account ID.
-**You get:** A JSON with the response (YES/NO) if the action of freezing the debt settlement was approved.
+**Você envia:** ID da conta.
+**Você obtém:** Um JSON com a resposta (SIM/NÃO) se a ação de congelar a dívida foi autorizada
 
-**Request:**
+**Requisição:**
 
 ```json
 GET api/account/00711234533/debtfreezing
 ```
 
-**Successful Response:**
+**Resposta válida:**
 
 ```json
 {
@@ -236,16 +253,16 @@ GET api/account/00711234533/debtfreezing
 
 ## Morning Calls
 
-**You send:** The request of morning calls
-**You get:** A JSON with the last morning calls
+**Você envia:** -
+**Você obtém:** Um JSON com as últimas Morning Calls do banco Safra.
 
-**Request:**
+**Requisição:**
 
 ```json
 GET api/morningcalls
 ```
 
-**Successful Response:**
+**Resposta válida:**
 
 ```json
 {
