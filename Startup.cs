@@ -21,6 +21,13 @@ namespace APISafra.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(o => o.AddPolicy("MvpPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+            }));
+
             services.AddSingleton<IHttpClientFactory, HttpClientFactory>();
             services.AddSingleton<ISafraAccountAgent, SafraAccountAgent>();
             services.AddSingleton<ISafraAccountService, SafraAccountService>();
@@ -36,6 +43,8 @@ namespace APISafra.API
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors("MvpPolicy");
 
             app.UseRouting();
 
