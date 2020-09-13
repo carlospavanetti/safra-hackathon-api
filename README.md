@@ -239,7 +239,7 @@ GET api/account/00711234533/debtapprove
 **Requisição:**
 
 ```json
-GET api/account/00711234533/debtfreezing
+POST api/account/00711234533/debtfreezing
 ```
 
 **Resposta válida:**
